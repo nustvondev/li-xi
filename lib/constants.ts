@@ -10,6 +10,7 @@ export const GAME_CONFIG = {
     SHAKE_DEBOUNCE: 1000, // Thời gian chờ giữa các lần detect lắc (ms)
     MAX_SHAKE_COUNT: 1, // Số lần lắc cần thiết để trúng (hiện tại set là 1 cho nhanh trúng)
     STORAGE_KEY: "lixi_played_status", // Key lưu trạng thái đã chơi
+    UNLIMITED_PLAY: true, // Cho phép chơi nhiều lần (Dev mode)
 };
 
 export const PRIZES: PrizeType[] = [
