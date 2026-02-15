@@ -7,7 +7,7 @@ import { usePermission } from "@/hooks/usePermission";
 import { Envelope } from "./Envelope";
 import { PermissionScreen } from "./PermissionScreen";
 import { ShakeSimulator } from "./ShakeSimulator";
-import { GAME_CONFIG, PRIZES, type PrizeType } from "@/lib/constants";
+import { GAME_CONFIG, PRIZES, WISHES, type PrizeType } from "@/lib/constants";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function GameContainer() {
@@ -35,11 +35,19 @@ export function GameContainer() {
 
     const handleWin = useCallback(() => {
         // Select random prize
-        const totalWeight = PRIZES.reduce((acc, p) => acc + p.weight, 0);
-        let random = Math.random() * totalWeight;
-        let selectedPrize = PRIZES[PRIZES.length - 1];
+        // Determine if grand prize (100k) is available this round
+        const isGrandPrizeAvailable = Math.random() < 0.3; // 30% chance for 100k to be in the pool
 
-        for (const p of PRIZES) {
+        let availablePrizes = PRIZES;
+        if (!isGrandPrizeAvailable) {
+            availablePrizes = PRIZES.filter(p => p.amount !== 100000);
+        }
+
+        const totalWeight = availablePrizes.reduce((acc, p) => acc + p.weight, 0);
+        let random = Math.random() * totalWeight;
+        let selectedPrize = availablePrizes[availablePrizes.length - 1];
+
+        for (const p of availablePrizes) {
             if (random < p.weight) {
                 selectedPrize = p;
                 break;
@@ -47,7 +55,9 @@ export function GameContainer() {
             random -= p.weight;
         }
 
-        setPrize(selectedPrize);
+        const randomWish = WISHES[Math.floor(Math.random() * WISHES.length)];
+
+        setPrize({ ...selectedPrize, message: randomWish });
         setGameState("won");
         setHasPlayed(true);
 
