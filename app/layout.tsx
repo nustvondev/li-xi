@@ -14,7 +14,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Lắc Lì Xì 2025",
+  title: "Lắc Lì Xì 2026",
   description: "Trò chơi Lắc Lì Xì mừng Xuân Ất Tỵ 2025",
 };
 
