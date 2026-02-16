@@ -18,7 +18,7 @@ export function PermissionScreen({ onRequestPermission, isSupported, permissionS
                 className="w-full max-w-sm"
             >
                 <h1 className="text-4xl font-bold font-serif text-yellow-300 mb-4 drop-shadow-md">
-                    Lắc Lì Xì 2025
+                    Lắc Lì Xì 2026
                 </h1>
                 <p className="text-lg text-white/90 max-w-xs mx-auto mb-8">
                     Lắc điện thoại để nhận ngay lộc đầu năm!
