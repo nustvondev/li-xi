@@ -259,10 +259,10 @@ export function GameContainer() {
                         className="text-center mb-10"
                     >
                         <h1 className="text-5xl font-extrabold text-yellow-400 drop-shadow-lg font-serif tracking-wide">
-                            Tết 2025
+                            Tết 2026
                         </h1>
                         <p className="text-white/80 text-lg mt-2 font-light tracking-widest uppercase">
-                            Xuân Ất Tỵ
+                            Xuân Bính Ngọ
                         </p>
                     </motion.div>
 
